@@ -14,10 +14,7 @@ public class ColumnMetadata
 public class EntityMetadata
 {
     public required string TableName {get; init;}
-
     public required List<ColumnMetadata> Columns {get; init;}
-
     public ColumnMetadata PrimaryKey => Columns.First(c => c.IsPrimaryKey);
 
-    public IEnumerable<ColumnMetadata> 
 }

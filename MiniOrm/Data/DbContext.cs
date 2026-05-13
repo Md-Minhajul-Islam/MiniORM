@@ -2,7 +2,7 @@ using System.Text;
 using Microsoft.Data.SqlClient;
 
 namespace MiniOrm.Data;
-public class DbContext
+public class DbContext : IDisposable
 {
     private readonly string _connectionString;
     private SqlConnection? _connection;
@@ -73,5 +73,12 @@ public class DbContext
             _connection.Open();
         }
         return _connection;
+    }
+
+    public void Dispose()
+    {
+        _connection?.Close();
+        _connection?.Dispose();
+        _connection = null;
     }
 }
