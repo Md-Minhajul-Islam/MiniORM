@@ -1,6 +1,6 @@
 namespace MiniOrm.Attributes;
 
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.Property)]
 public class ColumnAttribute : Attribute
 {
     public string Name {get;}

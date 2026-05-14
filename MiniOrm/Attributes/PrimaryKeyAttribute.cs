@@ -1,12 +1,5 @@
 namespace MiniOrm.Attributes;
 
-[AttributeUsage(AttributeTargets.Class)]
-public class PrimaryKeyAttribute : Attribute
-{
-    public string Name {get;}
-    public PrimaryKeyAttribute(string name)
-    {
-        Name = name;
-    }
-}
+[AttributeUsage(AttributeTargets.Property)]
+public class PrimaryKeyAttribute : Attribute { } 
 
