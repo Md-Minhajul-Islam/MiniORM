@@ -34,10 +34,34 @@ public static class TypeMapper
             });
         }
 
-        return new EntityMetadata {TableName = tableAttr.Name, Columns = columns};
+        return new EntityMetadata {TableName = tableAttr!.Name, Columns = columns};
     }
 
+    public static string GetSqlType(ColumnMetadata col)
+    {
+        var type = Nullable.GetUnderlyingType(col.Property.PropertyType)
+                   ?? col.Property.PropertyType;
 
+        var sqlType = type switch
+        {
+            _ when type == typeof(int) && col.IsPrimaryKey => "INT IDENTITY(1,1)",
+            _ when type == typeof(int)     => "INT",
+            _ when type == typeof(long)    => "BIGINT",
+            _ when type == typeof(float)   => "REAL",
+            _ when type == typeof(double)  => "FLOAT",
+            _ when type == typeof(decimal) => "DECIMAL(18,4)",
+            _ when type == typeof(bool)    => "BIT",
+            _ when type == typeof(DateTime) => "DATETIME2",
+            _ when type == typeof(Guid)    => "UNIQUEIDENTIFIER",
+            _ when type == typeof(string)  => "NVARCHAR(MAX)",
+            _ => throw new NotSupportedException($"Type '{type.Name}' is not supported for SQL mapping.")
+        };
+
+        if (col.IsPrimaryKey)
+            return sqlType;
+
+        return col.IsNullable ? $"{sqlType} NULL" : $"{sqlType} NOT NULL";
+    }
 
     private static bool ResolveNullability(PropertyInfo prop)
     {

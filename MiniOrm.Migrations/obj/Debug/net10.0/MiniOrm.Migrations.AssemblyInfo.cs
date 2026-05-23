@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniOrm.Migrations")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a67c87193c95b75c8fb0209c870ad31ffabc15a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c4bd5379eec8b27ba43a2942f08532c25228096")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniOrm.Migrations")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniOrm.Migrations")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
