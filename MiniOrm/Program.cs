@@ -1,15 +1,11 @@
-﻿// ════════════════════════════════════════════════════════════════════
-//  MiniOrm
+﻿//  MiniOrm
 //  Demonstrates every CRUD operation against a live SQL Server database.
 //
 //  Pre-requisite: run migrations first
 //    cd MiniOrm.Migrations
 //    dotnet run -- migrations add InitialCreate
 //    dotnet run -- migrations apply
-//
-//  Set the connection string in your shell before running:
-//    $Env:MINIORM_CONN = "Server=localhost;Database=miniorm_db;Trusted_Connection=True;TrustServerCertificate=True"
-// ════════════════════════════════════════════════════════════════════
+
 
 using MiniOrm.Configuration;
 using MiniOrm.Data;
